@@ -1,9 +1,23 @@
-from flask import Flask
+from flask import Flask, render_template
+import random
 
-app = Flask(__name__)
+app: Flask = Flask(__name__)
 
 @app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+def home() -> str: 
+    nomi: list[str] = ["christian", "marco", "franco"]
+    index: int= random.randint(0,2)
+    return render_template("home.html",titolo="Welcome", nome=nomi[index])
 
-app.run()
+@app.route("/details")
+def details() -> str:
+    prodottiTupla: tuple[tuple] = (("birra", 33, 2.5 ), ("pasta", 11, 0.80))
+    return render_template("details.html", titolo="details", pageName="product list:" , prodotti=prodottiTupla)
+
+
+
+
+
+
+####################################################
+app.run(debug=True) 

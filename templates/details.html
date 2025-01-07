@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+
+
+{%block contenuto_container%}
+<h1 style="text-align: center;">
+    Welcome to my page <br> {{pageName}}
+
+</h1>
+
+<table>
+    <tr>
+    <th>ProductName</th>
+    <th>Numero Scaffale</th>
+    <th>prezzo</th>
+</tr>
+
+
+{% for prodotto in prodotti %}
+<tr>
+    {%for dettagli in prodotto%}
+    <td>{{dettagli}}</td>
+    
+    {%endfor%}
+</tr>
+{% endfor %}
+
+</table>
+
+    
+{%endblock contenuto_container%}
