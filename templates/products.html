@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+
+
+{%block contenuto_container%}
+
+<div>
+    <table border="1">
+        <tr>
+          <th>Name</th>
+          <th>supply id</th>
+          <th>category id</th>
+          <th>unit</th>
+          <th>price</th>
+        </tr>
+        <tr>
+           {% for product in products %}
+                <tr>
+                    <td>{{product[0]}}</td>
+                    <td>{{product[1]}}</td>
+                    <td> <a href="{{url_for('category', id=product[2])}}">{{product[2]}}</a></td>
+                    <td>{{product[3]}}</td>
+                    <td>{{product[4]}}</td>
+
+                </tr>
+            {% endfor %}
+        </tr>
+      </table>
+</div>
+
+{%endblock contenuto_container%}
+

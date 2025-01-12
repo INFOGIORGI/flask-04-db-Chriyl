@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+   
+{%block contenuto_container%}
+
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>description</th>
+    </tr>
+    <tr>
+        {%for item in category %}
+        <tr>
+            {%for index in item%}
+                <th>{{index}}</th>
+            {%endfor%}
+        </tr>
+        {%endfor%}
+    </tr>
+</table>
+{%endblock%}
